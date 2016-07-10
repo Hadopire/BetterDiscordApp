@@ -627,10 +627,16 @@ EmoteModule.prototype.injectEmote = function(node) {
                 var sw = w;
                 
                 if(w.indexOf(":") > -1) {
-                    var split = w.split(":");
+                    var split = w.split(/:(?!.*:)/);
+					utils.log("bjr");
+					utils.log(split);
+					utils.log(sw);
                     if(split[0] != "" && split[1] != "") {
+						utils.log(split[0]);
+						utils.log(split[1]);
                         if(allowedClasses.indexOf(split[1]) > -1) {
                             sw = split[0];
+							utils.log(sw);
                             emoteClass = settingsCookie["bda-es-8"] ? "emote" + split[1] : "";
                         }
                         if(split[1] == "bttv") {
